@@ -22,6 +22,6 @@ Spesifikasi file:
 
 ## Anggota Kelompok
 Program ini dibuat oleh kelompok yang beranggotakan:
-1. Jevant Jedidia Augustine (13520116)
+1. Jevant Jedidia Augustine (13520133)
 2. Gerald Abraham Sianturi (13520138)
 3. Atabik Muhammad Azfa Shofi (13520159)
