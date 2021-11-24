@@ -1,4 +1,4 @@
-terminals = ["pass", "continue", "break", "if", "elif", "else", "while", "for", "in", "range", "from", "import", "as", "def", "with", "class", "or", "and", "is", "None", "(", ")", ",", ":", "not", "True", "False", "return", "==", "<=", ">=", "!=", "<", ">", "<>", "+", "-", "*", "/", "**", "//", "%", "&", "|", "^", "~", "<<", ">>", "=", "+=", "-=", "*=", "/=", "**=", "//=", "%=", "&=", "|=", "^=", ">>=", "<<="]
+terminals = ["pass", "continue", "break", "if", "elif", "else", "while", "for", "in", "range", "from", "import", "as", "def", "with", "class", "or", "and", "is", "None", "(", ")", ",", ":", "not", "True", "False", "return", "==", "<=", ">=", "!=", "<", ">", "<>", "+", "-", "*", "/", "**", "//", "%", "&", "|", "^", "~", "<<", ">>", "=", "+=", "-=", "*=", "/=", "**=", "//=", "%=", "&=", "|=", "^=", ">>=", "<<=", "."]
 
 def cekAngka(char):
     if (ord(char)>=48) and (ord(char)<=57):
@@ -102,6 +102,27 @@ def splitKoma (array):
     i = 0
     for char in content:
       if char == "," and i != 0:
+        temp = array[j]
+        cut = content[:i]
+        tutup = content[i:i+1]
+        tail = content[i+1:]
+        array.insert(j,cut)
+        array.insert(j+1,tutup)
+        if tail != '':
+          array.insert(j+2,tail)
+        array.remove(temp)
+        break
+      i += 1
+    j += 1
+  return array
+
+# Split titik dengan spasi
+def splitTitik (array):
+  j = 0
+  for content in array:
+    i = 0
+    for char in content:
+      if char == "." and i != 0:
         temp = array[j]
         cut = content[:i]
         tutup = content[i:i+1]
@@ -233,6 +254,7 @@ def split (array):
   array = splitKurungBuka(array)
   array = splitKurungTutup(array)
   array = splitKoma(array)
+  array = splitTitik(array)
   return array
 
 def replace(non_term,angka,string,variable):
